@@ -65,7 +65,7 @@ public class PlayerControl : MonoBehaviour
 	}
 
 	bool IsGrounded() {
-		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+		return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.05f);
 	}
 
 	void Update()
@@ -77,9 +77,11 @@ public class PlayerControl : MonoBehaviour
         aim = Input.GetKey(KeyCode.F);
         h = Input.GetAxis("Horizontal");
 		v = Input.GetAxis("Vertical");
-		run = Input.GetButton ("Run");
-		sprint = Input.GetButton ("Sprint");
-		isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.1;
+
+        run = !Input.GetButton ("Sprint");
+        //run = !Input.GetButton ("Run");
+        //sprint = Input.GetButton ("Sprint");
+        isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.01;
 	}
 
 	void FixedUpdate()
@@ -120,14 +122,16 @@ public class PlayerControl : MonoBehaviour
 		if (Input.GetButtonDown ("Jump"))
         {
             //anim.SetBool(jumpBool, true);
-			if(speed > 0 && timeToNextJump <= 0 && !aim)
+
+            if (speed > 0 && timeToNextJump <= 0 && !aim)
 			{
-				GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0);
+				GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0) + transform.forward;
                 timeToNextJump = jumpCooldown;
             }
-            else
+            else if(timeToNextJump <= 0 && !aim)
             {
-                GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0);
+                GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0) + transform.forward;
+                timeToNextJump = jumpCooldown;
             }
         }
 	}
