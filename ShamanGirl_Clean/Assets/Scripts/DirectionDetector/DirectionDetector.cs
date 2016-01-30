@@ -8,6 +8,7 @@ public abstract class DirectionDetector<T> : MonoBehaviour
     public static event DirectionDetectorEvent OnDetectedObject;
     public static event DirectionDetectorEvent OnExitDetectedObject;
 
+    public Transform target;
     public Transform directionDetector;
 
     //public string tag = "";
@@ -17,10 +18,14 @@ public abstract class DirectionDetector<T> : MonoBehaviour
 
     private T lastObject;
     private Vector3 lastPosition;
+    Vector3 screenPos;
+    public Texture2D crosshair;
 
     [Tooltip("Disable by default if you dont know how it will work")]
     public bool enableContiniousEvents = false;
     private bool doNotContiniousDetect = false;
+
+    private bool hud;
     void Update()
     {
         DoLogic();
@@ -59,15 +64,16 @@ public abstract class DirectionDetector<T> : MonoBehaviour
             position = directionDetector.position;
         else
             position = this.transform.position + Vector3.up * 0.4f;
-
+        
         Vector3 fwd = transform.TransformDirection(Vector3.forward) * rayMaxDistance;
-
+ 
         if (enableContiniousEvents) doNotContiniousDetect = false;
-
+        
         if (Physics.Raycast(position, fwd, out hit, rayMaxDistance, layer))
         {
+            screenPos = Camera.main.WorldToScreenPoint(target.position);
             Debug.DrawRay(position, fwd, Color.cyan, 5, false);
-
+            //Debug.DrawRay(ray.origin, ray.direction);
             if (hit.collider != null && !doNotContiniousDetect)
             {
                 doNotContiniousDetect = true;
@@ -107,4 +113,5 @@ public abstract class DirectionDetector<T> : MonoBehaviour
     /// <param name="hitted"></param>
     /// <returns></returns>
     public abstract T GetObject(GameObject hitted);
+
 }
