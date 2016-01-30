@@ -364,6 +364,58 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 2.535615
       objectReference: {fileID: 0}
+    - target: {fileID: 198538, guid: 6434bf5f1ed646143a7d1089ac387b3b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 133186, guid: 6434bf5f1ed646143a7d1089ac387b3b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 108030, guid: 6434bf5f1ed646143a7d1089ac387b3b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 119594, guid: 6434bf5f1ed646143a7d1089ac387b3b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 116770, guid: 6434bf5f1ed646143a7d1089ac387b3b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 144672, guid: 6434bf5f1ed646143a7d1089ac387b3b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 185078, guid: 6434bf5f1ed646143a7d1089ac387b3b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 143466, guid: 6434bf5f1ed646143a7d1089ac387b3b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 128038, guid: 6434bf5f1ed646143a7d1089ac387b3b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 152310, guid: 6434bf5f1ed646143a7d1089ac387b3b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 192924, guid: 6434bf5f1ed646143a7d1089ac387b3b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 167446, guid: 6434bf5f1ed646143a7d1089ac387b3b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 167116, guid: 6434bf5f1ed646143a7d1089ac387b3b, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6434bf5f1ed646143a7d1089ac387b3b, type: 2}
   m_IsPrefabParent: 0
@@ -1460,21 +1512,9 @@ Prefab:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 11453434, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
-      propertyPath: walkSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11453434, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
-      propertyPath: runSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11453434, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
-      propertyPath: sprintSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11453434, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
-      propertyPath: jumpHeight
-      value: 5
+    - target: {fileID: 11482498, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
+      propertyPath: enableContiniousEvents
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}

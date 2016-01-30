@@ -6,7 +6,7 @@ using System;
 public class PushAndPull : MonoBehaviour
 {
 
-    public float pushSpeed =10f;
+    public float pushSpeed = 10f;
     public float pushDistance = 6f;
     public float distanceFromObject = 2f;
 
