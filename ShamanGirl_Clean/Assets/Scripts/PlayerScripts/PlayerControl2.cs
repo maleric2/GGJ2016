@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerControl2 : MonoBehaviour
 {
 
     public float walkSpeed = 0.15f;
@@ -47,6 +48,9 @@ public class PlayerControl : MonoBehaviour
     private float distToGround;
     private float sprintFactor;
 
+
+    private LocomotionsPlayer movController;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -62,6 +66,8 @@ public class PlayerControl : MonoBehaviour
         groundedBool = Animator.StringToHash("Grounded");
         distToGround = GetComponent<Collider>().bounds.extents.y;
         sprintFactor = sprintSpeed / runSpeed;
+
+        movController = new LocomotionsPlayer(this.gameObject, speed);
     }
 
     bool IsGrounded()
@@ -71,6 +77,7 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
+        movController.GetInputs();
         // fly
         /*if(Input.GetButtonDown ("Fly"))
 			fly = !fly;*/
@@ -87,6 +94,13 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        movController.Move();
+
+        /*if (IsGrounded() && Input.GetButtonDown("Jump"))
+        {
+            Jump();
+        }*/
         anim.SetBool(aimBool, IsAiming());
         anim.SetFloat(hFloat, h);
         anim.SetFloat(vFloat, v);
@@ -95,21 +109,9 @@ public class PlayerControl : MonoBehaviour
         anim.SetBool(flyBool, fly);
         GetComponent<Rigidbody>().useGravity = !fly;
         anim.SetBool(groundedBool, IsGrounded());
-        if (fly)
-            FlyManagement(h, v);
+        //MovementManagement(h, v, run, sprint);
+        JumpManagement();
 
-        else
-        {
-            MovementManagement(h, v, run, sprint);
-            JumpManagement();
-        }
-    }
-
-    // fly
-    void FlyManagement(float horizontal, float vertical)
-    {
-        Vector3 direction = Rotating(horizontal, vertical);
-        GetComponent<Rigidbody>().AddForce(direction * flySpeed * 100 * (sprint ? sprintFactor : 1));
     }
 
     void JumpManagement()
@@ -237,7 +239,7 @@ public class PlayerControl : MonoBehaviour
         if (col.GetComponent<BoxCollider>())
         {
             //h = 0;
-           // v = 0;
+            // v = 0;
         }
     }
     public bool IsFlying()
