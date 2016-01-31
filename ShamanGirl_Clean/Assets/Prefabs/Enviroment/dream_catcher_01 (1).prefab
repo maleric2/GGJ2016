@@ -430,9 +430,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d3b940c8f9250cd408f5108b127ebfd0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a159bf933abf793439f24a9e32809277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOut: 1
+  timeOut: 1.5
   detachChildren: 0
 --- !u!122 &12268252
 Halo:
