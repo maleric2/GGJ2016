@@ -37,7 +37,10 @@ public class GameManager : DefaultManagerView
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            OnReloadLevelButton();
+        }
     }
 
     public void UpdateScore()
