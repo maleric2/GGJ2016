@@ -18,7 +18,7 @@ public class IntroManager : MonoBehaviour {
 	void Update () {
 
 	}
-    void LoadScene()
+    public void LoadScene()
     {
         SceneManager.LoadScene(MenuManager.SCENE_PLAY);
     }
