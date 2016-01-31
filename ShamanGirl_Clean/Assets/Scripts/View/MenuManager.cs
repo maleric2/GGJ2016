@@ -12,6 +12,7 @@ namespace Assets.Scripts.View
         #region Constants
 
         public const string SCENE_MENU = "MainMenu";
+        public const string SCENE_INTRO = "IntroScene";
         public const string SCENE_PLAY = "Level01";
         public const string SCENE_CREDITS = "Credits";
 
@@ -20,7 +21,7 @@ namespace Assets.Scripts.View
         public void OnPlayButton()
         {
 
-            SceneManager.LoadScene(SCENE_PLAY);
+            SceneManager.LoadScene(SCENE_INTRO);
 
         }
         public void OnCredists()
@@ -28,6 +29,10 @@ namespace Assets.Scripts.View
 
             SceneManager.LoadScene(SCENE_CREDITS);
 
+        }
+        public void OnMenu()
+        {
+            SceneManager.LoadScene(SCENE_MENU);
         }
         public void OnExit()
         {

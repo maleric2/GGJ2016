@@ -3269,6 +3269,10 @@ Prefab:
       propertyPath: pushSpeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5408354, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 14364700, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
