@@ -8,7 +8,7 @@ public class GameManager : DefaultManagerView
 {
 
     public static GameManager instance;
-    private int score = 0;
+    public int score = 0;
 
     public Text scoreLabel;
 
@@ -44,6 +44,7 @@ public class GameManager : DefaultManagerView
     public void AddScore(int score)
     {
         this.controller.Score += score;
+        this.score += score;
         if(scoreLabel!=null) scoreLabel.text = this.controller.Score.ToString();
 
     }

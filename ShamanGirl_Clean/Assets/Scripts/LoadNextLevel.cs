@@ -5,14 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class LoadNextLevel : MonoBehaviour {
 
+    private Collider triggerCollider;
+
 	// Use this for initialization
 	void Start () {
-	
+        triggerCollider = GetComponent<Collider>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (GameManager.instance.maxLevelScore == GameManager.instance.score)
+            triggerCollider.enabled = true;
 	}
 
     void OnTriggerEnter(Collider collider)
