@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.View
 {
-    class MenuManager
+    public class MenuManager : MonoBehaviour
     {
         #region Constants
 
         public const string SCENE_MENU = "MainMenu";
         public const string SCENE_PLAY = "Play";
-        public const string SCENE_CONTINUEPLay = "Continue";
-        public const string SCENE_ = "Play";
+        public const string SCENE_CREDITS = "Credits";
 
         #endregion
 
@@ -23,7 +23,18 @@ namespace Assets.Scripts.View
             SceneManager.LoadScene(SCENE_PLAY);
 
         }
-        
+        public void OnCredists()
+        {
+
+            SceneManager.LoadScene(SCENE_CREDITS);
+
+        }
+        public void OnExit()
+        {
+            Application.Quit();
+
+        }
+
 
     }
 }
