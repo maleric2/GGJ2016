@@ -1724,6 +1724,84 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3182f31b5b9be3b4cb94f53969427f78, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &888330618 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 154898, guid: 3182f31b5b9be3b4cb94f53969427f78, type: 2}
+  m_PrefabInternal: {fileID: 888330617}
+--- !u!82 &888330619
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 888330618}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4d064aa7856e40e40b625d8438d3b3b0, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.25
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &888597548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,24 +1962,6 @@ MeshFilter:
 Transform:
   m_PrefabParentObject: {fileID: 442158, guid: cbc9e120ba937db42b243b9499984ea1, type: 2}
   m_PrefabInternal: {fileID: 2021226448}
---- !u!1 &938291992 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 165672, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
-  m_PrefabInternal: {fileID: 1287087231}
---- !u!114 &938291993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 938291992}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fef5b8e212f9d0c458aeadede0a28e39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Acceleration: 8
-  MaxSpeed: 4
-  JumpStrength: 100
 --- !u!4 &938292001 stripped
 Transform:
   m_PrefabParentObject: {fileID: 412248, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
@@ -2711,29 +2771,17 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 644026170}
-    - target: {fileID: 5408354, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
-      propertyPath: m_Constraints
-      value: 114
-      objectReference: {fileID: 0}
-    - target: {fileID: 11453434, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9520346, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 165672, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 12045636, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
-      propertyPath: m_Enabled
+    - target: {fileID: 8260230, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5408354, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
-      propertyPath: m_Interpolate
-      value: 2
+    - target: {fileID: 8260230, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260230, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01291b7015837ab4a86fa2fb097418eb, type: 2}

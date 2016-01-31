@@ -31,6 +31,7 @@ public class PlayerControl : MonoBehaviour
     private int flyBool;
     private int groundedBool;
     private Transform cameraTransform;
+    private AudioSource audioSource;
 
     private float h;
     private float v;
@@ -65,6 +66,8 @@ public class PlayerControl : MonoBehaviour
         groundedBool = Animator.StringToHash("Grounded");
         distToGround = GetComponent<Collider>().bounds.extents.y;
         sprintFactor = sprintSpeed / runSpeed;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     bool IsGrounded()
@@ -86,6 +89,7 @@ public class PlayerControl : MonoBehaviour
         //run = !Input.GetButton ("Run");
         //sprint = Input.GetButton ("Sprint");
         isMoving = Mathf.Abs(h) > 0.1 || Mathf.Abs(v) > 0.01;
+
     }
 
     void FixedUpdate()
@@ -129,7 +133,6 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             //anim.SetBool(jumpBool, true);
-
             if (speed > 0 && timeToNextJump <= 0 && !aim)
             {
                 //GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0) + transform.forward;
@@ -175,6 +178,8 @@ public class PlayerControl : MonoBehaviour
             }
 
             anim.SetFloat(speedFloat, speed, speedDampTime, Time.deltaTime);
+            if(!audioSource.isPlaying)
+                audioSource.Play();
 
             //Pokretanje pomoću sile
             //Vector3 direction = Rotating(horizontal, vertical);
@@ -187,6 +192,7 @@ public class PlayerControl : MonoBehaviour
         {
             speed = 0f;
             anim.SetFloat(speedFloat, 0f);
+            audioSource.Pause();
         }
         rigidBody.AddForce(Vector3.forward * speed);
     }
