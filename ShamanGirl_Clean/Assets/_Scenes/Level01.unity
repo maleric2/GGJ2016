@@ -1295,7 +1295,11 @@ Prefab:
       objectReference: {fileID: 485166337}
     - target: {fileID: 22496822, guid: cf687589663fe0341ba34bb2b5ec8944, type: 2}
       propertyPath: m_SizeDelta.x
-      value: -580.98486
+      value: -108.95417
+      objectReference: {fileID: 0}
+    - target: {fileID: 145554, guid: cf687589663fe0341ba34bb2b5ec8944, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf687589663fe0341ba34bb2b5ec8944, type: 2}
@@ -1636,6 +1640,14 @@ Prefab:
       propertyPath: scoreLabel
       value: 
       objectReference: {fileID: 1785312898}
+    - target: {fileID: 11459320, guid: 3182f31b5b9be3b4cb94f53969427f78, type: 2}
+      propertyPath: gameOverCanvas
+      value: 
+      objectReference: {fileID: 1384284414}
+    - target: {fileID: 11459320, guid: 3182f31b5b9be3b4cb94f53969427f78, type: 2}
+      propertyPath: levelCompleteCanvas
+      value: 
+      objectReference: {fileID: 1138002871}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3182f31b5b9be3b4cb94f53969427f78, type: 2}
   m_IsPrefabParent: 0
@@ -2085,7 +2097,7 @@ SphereCollider:
   m_GameObject: {fileID: 1012934170}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 73.34551
   m_Center: {x: 0.61267513, y: 1.5963762, z: 0.6118913}
@@ -2312,6 +2324,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 422250, guid: d99652cdb9f5b78428abb0b05bdd3466, type: 2}
   m_PrefabInternal: {fileID: 1127023649}
+--- !u!1 &1138002871 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 160406, guid: 14e691ce171aa1345a55e4ed7dcc36f1, type: 2}
+  m_PrefabInternal: {fileID: 608031712}
 --- !u!1 &1194179872
 GameObject:
   m_ObjectHideFlags: 0
@@ -2388,6 +2404,10 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1194179872}
+--- !u!1 &1384284414 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 145554, guid: cf687589663fe0341ba34bb2b5ec8944, type: 2}
+  m_PrefabInternal: {fileID: 686776346}
 --- !u!1001 &1389144575
 Prefab:
   m_ObjectHideFlags: 0

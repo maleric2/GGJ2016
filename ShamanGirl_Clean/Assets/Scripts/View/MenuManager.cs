@@ -12,7 +12,7 @@ namespace Assets.Scripts.View
         #region Constants
 
         public const string SCENE_MENU = "MainMenu";
-        public const string SCENE_PLAY = "Play";
+        public const string SCENE_PLAY = "Level01";
         public const string SCENE_CREDITS = "Credits";
 
         #endregion

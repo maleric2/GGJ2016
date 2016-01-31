@@ -164,8 +164,8 @@ public class ThirdPersonOrbitCam : MonoBehaviour
 	{
 		float mag = Mathf.Abs ((aimPivotOffset - smoothPivotOffset).magnitude);
 		if (playerControl.IsAiming() &&  mag < 0.05f)
-			GUI.DrawTexture(new Rect(Screen.width/2-(crosshair.width*0.5f), 
-			                         Screen.height/2-(crosshair.height*0.5f), 
+			GUI.DrawTexture(new Rect(Screen.width/2.3f-(crosshair.width*0.5f), 
+			                         Screen.height/2.1f - (crosshair.height*0.5f), 
 			                         crosshair.width, crosshair.height), crosshair);
 	}
 }
