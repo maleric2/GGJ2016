@@ -16,10 +16,16 @@ public class PushAndPull : MonoBehaviour
     private bool shiftClickMove = false;
 
     private float distToGround;
+    private Animator anim;
+
+    private bool fastButton = false;
+    private bool mouseButton0 = false;
+    private bool mouseButton1 = false;
 
     // Use this for initialization
     void Start()
     {
+        anim = GetComponent<Animator>();
 
     }
 
@@ -30,9 +36,9 @@ public class PushAndPull : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftControl))
         {
             if (Input.GetMouseButtonDown(0) && objectDetected)
             {
@@ -41,6 +47,14 @@ public class PushAndPull : MonoBehaviour
             else if (Input.GetMouseButtonDown(1) && objectDetected)
             {
                 MoveObjectPush(currentObject, -this.transform.forward, true);
+            }
+            else
+            {
+                if (anim != null)
+                {
+                    anim.SetBool("Push", false);
+                    anim.SetBool("Pull", false);
+                }
             }
         }
         else
@@ -52,6 +66,14 @@ public class PushAndPull : MonoBehaviour
             else if (Input.GetMouseButton(1) && objectDetected)
             {
                 MoveObject(currentObject, -this.transform.forward, pushSpeed, true);
+            }
+            else
+            {
+                if (anim != null)
+                {
+                    anim.SetBool("Push", false);
+                    anim.SetBool("Pull", false);
+                }
             }
         }
     }
@@ -110,7 +132,17 @@ public class PushAndPull : MonoBehaviour
 
 
         //Debug.Log("MoveObj: distance: " + currDistance + " wantedDist: " + wantedDistance);
-        if (currDistance > distanceFromObject || !pull)
+        if (currDistance > distanceFromObject || !pull) { 
             objRb.AddForce(target * pushSpeed * objRb.mass, ForceMode.Force);
+            if (anim!=null && pull) {
+                anim.SetBool("Push", false);
+                anim.SetBool("Pull", true);
+                }
+            else if (anim != null && !pull)
+            {
+                anim.SetBool("Push", true);
+                anim.SetBool("Pull", false);
+            }
+        }
     }
 }
