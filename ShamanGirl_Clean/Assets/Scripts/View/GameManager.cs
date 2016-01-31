@@ -53,15 +53,29 @@ public class GameManager : DefaultManagerView
         if(scoreLabel!=null) scoreLabel.text = this.controller.Score.ToString();
 
     }
+    public void OnClosedMsg()
+    {
+        if (Camera.main.GetComponent<ThirdPersonOrbitCam>())
+            Camera.main.GetComponent<ThirdPersonOrbitCam>().enabled = true;
+    }
     public void OnLevelEnd()
     {
         if (score >= maxLevelScore)
         {
-            if (levelCompleteCanvas != null) levelCompleteCanvas.SetActive(true);
+            if (levelCompleteCanvas != null)
+            {
+                levelCompleteCanvas.SetActive(true);
+                if (Camera.main.GetComponent<ThirdPersonOrbitCam>())
+                    Camera.main.GetComponent<ThirdPersonOrbitCam>().enabled = false;
+            }
         }
         else
         {
-            if (gameOverCanvas != null) gameOverCanvas.SetActive(true);
+            if (gameOverCanvas != null) { gameOverCanvas.SetActive(true);
+
+                if (Camera.main.GetComponent<ThirdPersonOrbitCam>())
+                    Camera.main.GetComponent<ThirdPersonOrbitCam>().enabled = false;
+            }
         }
     }
     public void LoadNextLeve()
