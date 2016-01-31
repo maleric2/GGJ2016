@@ -47,10 +47,13 @@ public class PlayerControl : MonoBehaviour
     private float distToGround;
     private float sprintFactor;
 
+    private Rigidbody rigidBody;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
         cameraTransform = Camera.main.transform;
+        rigidBody = GetComponent<Rigidbody>();
 
         speedFloat = Animator.StringToHash("Speed");
         jumpBool = Animator.StringToHash("Jump");
@@ -93,7 +96,7 @@ public class PlayerControl : MonoBehaviour
 
         // Fly
         anim.SetBool(flyBool, fly);
-        GetComponent<Rigidbody>().useGravity = !fly;
+        rigidBody.useGravity = !fly;
         anim.SetBool(groundedBool, IsGrounded());
         if (fly)
             FlyManagement(h, v);
@@ -104,17 +107,20 @@ public class PlayerControl : MonoBehaviour
             JumpManagement();
         }
     }
-
+    void LateUpdate()
+    {
+        //if()
+    }
     // fly
     void FlyManagement(float horizontal, float vertical)
     {
         Vector3 direction = Rotating(horizontal, vertical);
-        GetComponent<Rigidbody>().AddForce(direction * flySpeed * 100 * (sprint ? sprintFactor : 1));
+        rigidBody.AddForce(direction * flySpeed * 100 * (sprint ? sprintFactor : 1));
     }
 
     void JumpManagement()
     {
-        if (GetComponent<Rigidbody>().velocity.y < 10) // already jumped
+        if (rigidBody.velocity.y < 10) // already jumped
         {
             anim.SetBool(jumpBool, false);
             if (timeToNextJump > 0)
@@ -127,15 +133,24 @@ public class PlayerControl : MonoBehaviour
             if (speed > 0 && timeToNextJump <= 0 && !aim)
             {
                 //GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0) + transform.forward;
-                GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpHeight, 0) + transform.forward, ForceMode.Impulse);
+                rigidBody.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Impulse);
+                rigidBody.AddForce(transform.forward * jumpHeight, ForceMode.Acceleration);
 
                 timeToNextJump = jumpCooldown;
             }
             else if (timeToNextJump <= 0 && !aim)
             {
                 //GetComponent<Rigidbody>().velocity = new Vector3(0, jumpHeight, 0) + transform.forward;
-                GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpHeight, 0) + transform.forward, ForceMode.Impulse);
+                rigidBody.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Impulse);
+                rigidBody.AddForce(transform.forward * jumpHeight, ForceMode.Acceleration);
                 timeToNextJump = jumpCooldown;
+            }
+
+            h = Input.GetAxis("Horizontal");
+            v = Input.GetAxis("Vertical");
+            if (h != 0 || v != 0)
+            {
+                rigidBody.AddRelativeForce(Vector3.forward * speed * 10, ForceMode.Force);
             }
         }
     }
@@ -164,7 +179,7 @@ public class PlayerControl : MonoBehaviour
             //Pokretanje pomoću sile
             //Vector3 direction = Rotating(horizontal, vertical);
             //GetComponent<Rigidbody>().AddForce(transform.forward * speed * (sprint ? sprintFactor : 1));
-            GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * speed * 10, ForceMode.Force);
+            //GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * speed * 10, ForceMode.Force);
 
 
         }
@@ -173,7 +188,7 @@ public class PlayerControl : MonoBehaviour
             speed = 0f;
             anim.SetFloat(speedFloat, 0f);
         }
-        //GetComponent<Rigidbody>().AddForce(Vector3.forward * speed);
+        rigidBody.AddForce(Vector3.forward * speed);
     }
 
     Vector3 Rotating(float horizontal, float vertical)
@@ -207,8 +222,8 @@ public class PlayerControl : MonoBehaviour
             if (fly)
                 targetRotation *= Quaternion.Euler(90, 0, 0);
 
-            Quaternion newRotation = Quaternion.Slerp(GetComponent<Rigidbody>().rotation, targetRotation, finalTurnSmoothing * Time.deltaTime);
-            GetComponent<Rigidbody>().MoveRotation(newRotation);
+            Quaternion newRotation = Quaternion.Slerp(rigidBody.rotation, targetRotation, finalTurnSmoothing * Time.deltaTime);
+            rigidBody.MoveRotation(newRotation);
             lastDirection = targetDirection;
         }
         //idle - fly or grounded

@@ -50,8 +50,8 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
-    m_EnableRealtimeLightmaps: 1
+    m_EnableBakedLightmaps: 0
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 3
     m_Resolution: 2
@@ -1295,7 +1295,7 @@ Prefab:
       objectReference: {fileID: 485166337}
     - target: {fileID: 22496822, guid: cf687589663fe0341ba34bb2b5ec8944, type: 2}
       propertyPath: m_SizeDelta.x
-      value: -724.73883
+      value: -580.98486
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf687589663fe0341ba34bb2b5ec8944, type: 2}

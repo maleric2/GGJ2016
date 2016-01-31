@@ -14,6 +14,9 @@ public class PushAndPull : MonoBehaviour
     private GameObject currentObject;
 
     private bool shiftClickMove = false;
+
+    private float distToGround;
+
     // Use this for initialization
     void Start()
     {
