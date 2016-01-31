@@ -204,9 +204,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Game
-
-    Over'
+  m_Text: Find all dream catchers to finish
 --- !u!114 &11415216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -239,7 +237,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Menu
+  m_Text: Return
 --- !u!114 &11415970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -373,12 +371,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 185652}
-        m_MethodName: 
+      - m_Target: {fileID: 0}
+        m_MethodName: OnReloadLevelButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -582,17 +580,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: OnBackButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!222 &22211958
@@ -708,8 +695,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22496822}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0.19738042, y: 0.25100002}
-  m_AnchorMax: {x: 0.8692118, y: 0.9491046}
+  m_AnchorMin: {x: 0.13823916, y: 0.25100002}
+  m_AnchorMax: {x: 0.8934237, y: 0.84700006}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -762,8 +749,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.082, y: 0.112}
   m_AnchorMax: {x: 0.97752494, y: 0.85600007}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 3.6, y: -1.7}
+  m_SizeDelta: {x: -7.1, y: -9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22496822
 RectTransform:

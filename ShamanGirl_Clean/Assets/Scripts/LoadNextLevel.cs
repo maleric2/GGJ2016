@@ -21,6 +21,6 @@ public class LoadNextLevel : MonoBehaviour {
     void OnTriggerEnter(Collider collider)
     {
         Debug.Log("New level");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameManager.instance.OnLevelEnd();
     }
 }

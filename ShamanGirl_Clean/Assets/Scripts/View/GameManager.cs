@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 using Assets.Scripts.ListView;
 using System;
+using UnityEngine.SceneManagement;
+using Assets.Scripts.View;
 
 public class GameManager : DefaultManagerView
 {
@@ -11,8 +13,11 @@ public class GameManager : DefaultManagerView
     public int score = 0;
 
     public Text scoreLabel;
+    public GameObject gameOverCanvas;
+    public GameObject levelCompleteCanvas;
 
     private GameController controller;
+    
 
     public int maxLevelScore;
 
@@ -48,10 +53,28 @@ public class GameManager : DefaultManagerView
         if(scoreLabel!=null) scoreLabel.text = this.controller.Score.ToString();
 
     }
-
+    public void OnLevelEnd()
+    {
+        if (score >= maxLevelScore)
+        {
+            if (levelCompleteCanvas != null) levelCompleteCanvas.SetActive(true);
+        }
+        else
+        {
+            if (gameOverCanvas != null) gameOverCanvas.SetActive(true);
+        }
+    }
+    public void LoadNextLeve()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
     public override void OnBackButton()
     {
-        throw new NotImplementedException();
+        SceneManager.LoadScene(MenuManager.SCENE_MENU);
+    }
+    public void OnReloadLevelButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void OnProperties()
     {
