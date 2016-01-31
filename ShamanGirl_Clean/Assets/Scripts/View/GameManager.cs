@@ -50,7 +50,11 @@ public class GameManager : DefaultManagerView
     {
         this.controller.Score += score;
         this.score += score;
-        if(scoreLabel!=null) scoreLabel.text = this.controller.Score.ToString();
+        if (scoreLabel != null)
+        {
+            scoreLabel.text = this.controller.Score.ToString();
+            scoreLabel.text = score.ToString() + " / " + maxLevelScore.ToString();
+        }
 
     }
     public void OnClosedMsg()
